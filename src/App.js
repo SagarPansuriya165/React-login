@@ -1,23 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Login from './pages/Login';
+import Register from './pages/Register';
+import EventsCalendar from './pages/EventsCalendar';
+import Navbar from './component/Navbar';
+import Footer from './component/Footer';
+import ForgotPassword from './pages/ForGatepass';
+import Dashboard from './pages/Dashboard';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      {/* <BrowserRouter> */}
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forgotPassword" element={<ForgotPassword />} />
+        <Route path="/eventsCalendar" element={<EventsCalendar />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+      <ToastContainer />
+      {/* </BrowserRouter> */}
+      {/* <Footer /> */}
     </div>
   );
 }
